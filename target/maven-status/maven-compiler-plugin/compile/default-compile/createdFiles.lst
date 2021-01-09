@@ -1,0 +1,8 @@
+brere\nat\torrent\api\TorrentAPI.class
+brere\nat\torrent\api\model\utils\Token.class
+brere\nat\torrent\api\utils\TorrentAPIUtils.class
+brere\nat\torrent\api\model\EpisodeInfo.class
+brere\nat\torrent\api\model\utils\APIError.class
+brere\nat\torrent\api\model\utils\TorrentAPIException.class
+brere\nat\torrent\api\model\TorrentResult.class
+brere\nat\torrent\api\model\TorrentResults.class
