@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import brere.nat.torrent.api.model.TorrentResult;
 import brere.nat.torrent.api.model.TorrentResults;
-import brere.nat.torrent.api.model.utils.TorrentAPIException;
+import brere.nat.torrent.api.utils.TorrentAPIException;
 import brere.nat.torrent.api.utils.TorrentAPIUtils;
 
 public class TorrentAPI extends TorrentAPIUtils {

@@ -30,7 +30,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import brere.nat.torrent.api.model.utils.APIError;
 import brere.nat.torrent.api.model.utils.Token;
-import brere.nat.torrent.api.model.utils.TorrentAPIException;
 
 public abstract class TorrentAPIUtils {
 
@@ -297,7 +296,7 @@ public abstract class TorrentAPIUtils {
 			item = getObject(uri, clazz);
 		} else {
 			requestCounter = 0;
-			throw new TorrentAPIException("Couldn't get good response from " + uri.toString() + " after "
+			throw new TorrentNotFoundException("Couldn't get good response from " + uri.toString() + " after "
 					+ maxRetries + " attempts");
 		}
 		return item;

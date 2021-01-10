@@ -1,4 +1,4 @@
-package brere.nat.torrent.api.model.utils;
+package brere.nat.torrent.api.utils;
 
 public class TorrentAPIException extends Exception {
 
