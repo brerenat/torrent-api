@@ -18,6 +18,7 @@ import brere.nat.torrent.api.utils.TorrentAPIUtils;
 public class TorrentAPI extends TorrentAPIUtils {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(TorrentAPI.class);
+	private int minSeeders = 0;
 
 	/**
 	 * 
@@ -55,6 +56,14 @@ public class TorrentAPI extends TorrentAPIUtils {
 		super(appID, httpClientBuilder);
 	}
 
+	public int getMinSeeders() {
+		return minSeeders;
+	}
+
+	public void setMinSeeders(int minSeeders) {
+		this.minSeeders = minSeeders;
+	}
+
 	/**
 	 * 
 	 * @param params
@@ -89,7 +98,7 @@ public class TorrentAPI extends TorrentAPIUtils {
 		
 		final List<NameValuePair> params = getRequestParams();
 		params.add(new BasicNameValuePair("search_imdb", imdbID));
-		
+		setMinSeeders(params);
 		return getTorrentResults(params);
 	}
 	
@@ -108,7 +117,7 @@ public class TorrentAPI extends TorrentAPIUtils {
 		final List<NameValuePair> params = getRequestParams();
 		params.add(new BasicNameValuePair("search_imdb", imdbID));
 		params.add(new BasicNameValuePair("search_string", search));
-		
+		setMinSeeders(params);
 		return getTorrentResults(params);
 	}
 	
@@ -125,8 +134,14 @@ public class TorrentAPI extends TorrentAPIUtils {
 		
 		final List<NameValuePair> params = getRequestParams();
 		params.add(new BasicNameValuePair("search_string", search));
-		
+		setMinSeeders(params);
 		return getTorrentResults(params);
+	}
+	
+	private void setMinSeeders(final List<NameValuePair> params) {
+		if (minSeeders > 0) {
+			params.add(new BasicNameValuePair("min_seeders", Integer.toString(minSeeders)));
+		}
 	}
 
 }
